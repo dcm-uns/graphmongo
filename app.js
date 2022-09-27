@@ -1,6 +1,12 @@
 const Express = require("express");
 const ExpressGraphQL = require("express-graphql");
+
+// MonGoose es un ORM que nos permite abstraernos de algunos detalles de la base de datos,
+// de forma tal de trabajar con el modelo de los datos, que definiremos luego.
 const mongoose = require("mongoose");
+
+// Como ofreceremos un endpoint GraphQL, es necesario especificar los esquemas (schemas)
+// de nuestros datos. Por esa razón es necesario importar los tipos de datos GraphQL:
 const {
 	GraphQLID,
 	GraphQLString,
@@ -10,9 +16,10 @@ const {
 	GraphQLNonNull,
 	GraphQLObjectType
 } = require("graphql");
+
+// Creamos la aplicación Express
 var app = Express();
 var cors = require("cors");
-
 app.use(cors());
 
 mongoose
